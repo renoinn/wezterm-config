@@ -6,7 +6,8 @@ local options = {
 }
 
 if platform.is_win then
-   options.default_prog = { 'pwsh', '-NoLogo' }
+   options.default_prog = { '/usr/bin/env', 'zsh', '-l', '-c', 'exec /usr/bin/env zsh' }
+   options.default_domain = 'WSL:Ubuntu'
    options.launch_menu = {
       { label = 'PowerShell Core', args = { 'pwsh', '-NoLogo' } },
       { label = 'PowerShell Desktop', args = { 'powershell' } },
@@ -19,7 +20,7 @@ if platform.is_win then
       },
    }
 elseif platform.is_mac then
-   options.default_prog = { '/opt/homebrew/bin/fish', '-l' }
+   options.default_prog = { 'zsh', '-l' }
    options.launch_menu = {
       { label = 'Bash', args = { 'bash', '-l' } },
       { label = 'Fish', args = { '/opt/homebrew/bin/fish', '-l' } },
@@ -27,7 +28,7 @@ elseif platform.is_mac then
       { label = 'Zsh', args = { 'zsh', '-l' } },
    }
 elseif platform.is_linux then
-   options.default_prog = { 'fish', '-l' }
+   options.default_prog = { 'zsh', '-l' }
    options.launch_menu = {
       { label = 'Bash', args = { 'bash', '-l' } },
       { label = 'Fish', args = { 'fish', '-l' } },

@@ -8,8 +8,8 @@ return {
          remote_address = 'localhost',
          multiplexing = 'None',
          default_prog = { 'fish', '-l' },
-         assume_shell = 'Posix'
-      }
+         assume_shell = 'Posix',
+      },
    },
 
    -- ref: https://wezfurlong.org/wezterm/multiplexing.html#unix-domains
@@ -20,9 +20,8 @@ return {
       {
          name = 'WSL:Ubuntu',
          distribution = 'Ubuntu',
-         username = 'kevin',
-         default_cwd = '/home/kevin',
-         default_prog = { 'fish', '-l' },
+         default_cwd = '/home/renoinn',
+         default_prog = { '/usr/bin/env', 'zsh', '-l', '-c', 'exec /usr/bin/env zsh' },
       },
    },
 }
