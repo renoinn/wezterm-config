@@ -1,6 +1,7 @@
 local wezterm = require('wezterm')
 local platform = require('utils.platform')
 local backdrops = require('utils.backdrops')
+local workspace = require('utils.workspace')
 local act = wezterm.action
 
 local mod = {}
@@ -206,6 +207,31 @@ local keys = {
    { key = 'd',        mods = mod.SUPER, action = act.ScrollByLine(5) },
    { key = 'PageUp',   mods = 'NONE',    action = act.ScrollByPage(-0.75) },
    { key = 'PageDown', mods = 'NONE',    action = act.ScrollByPage(0.75) },
+
+   -- workspace --
+   {
+      key = 'm',
+      mods = mod.SUPER,
+      action = act.PromptInputLine {
+         description = "(wezterm) Create new workspace:",
+         action = wezterm.action_callback(workspace.create_workspace)
+      }
+   },
+   {
+      key = 'm',
+      mods = mod.SUPER_REV,
+      action = wezterm.action_callback(workspace.switch_workspace)
+   },
+   {
+      key = 'n',
+      mods = 'CTRL|SHIFT',
+      action = act.SwitchWorkspaceRelative(1)
+   },
+   {
+      key = 'p',
+      mods = 'CTRL|SHIFT',
+      action = act.SwitchWorkspaceRelative(-1)
+   },
 
    -- key-tables --
    -- resizes fonts
