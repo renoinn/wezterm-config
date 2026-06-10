@@ -17,7 +17,8 @@ end
 ---@type Key[]
 local keys = {
    -- misc/useful --
-   { key = 'F1', mods = 'NONE', action = act.ActivateCopyMode },
+   { key = 'v', mods = 'LEADER', action = act.ActivateCopyMode },
+   { key = 'F1', mods = 'LEADER', action = act.ActivateCopyMode },
    { key = 'F2', mods = 'NONE', action = act.ActivateCommandPalette },
    { key = 'F3', mods = 'NONE', action = act.ShowLauncher },
    { key = 'F4', mods = 'NONE', action = act.ShowLauncherArgs({ flags = 'FUZZY|TABS' }) },
