@@ -256,7 +256,7 @@ local function create_title(process_name, base_title, max_width, inset)
    local title
 
    if process_name:len() > 0 then
-      title = process_name .. ' ~ ' .. base_title
+      title = base_title .. ' ~ ' .. process_name
    else
       title = base_title
    end
@@ -448,7 +448,7 @@ function Tab:update_cells(event_opts, tab, hover, max_width)
       tab_state = 'hover'
    end
 
-   local process_name = clean_process_name(tab.active_pane.foreground_process_name)
+   local process_name = clean_process_name(tab.active_pane.current_working_dir)
    local base_title, prefix_icon = create_base_title(tab.active_pane.title, process_name)
    local unseen_icon = check_unseen_output(event_opts, tab.is_active, tab.panes)
    local progress = check_progress(event_opts, tab.tab_index, tab.panes)
